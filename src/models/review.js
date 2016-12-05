@@ -1,6 +1,5 @@
 import { PropTypes } from 'react';
 import Feedback from ' ./feedback';
-import Employee from ' ./employee';
 
 export default class Review {
 	static propShape = {
@@ -9,7 +8,7 @@ export default class Review {
 		feedbacks: PropTypes.arrayOf(PropTypes.shape({...Feedback.propShape}))
 		text: PropTypes.string,
 		createdDate: PropTypes.date,
-		assignees: PropTypes.arrayOf(PropTypes.shape({...Employee.propShape}))
+		assigneeEmployeeIDs: PropTypes.array
 	};
 
 	constructor(...props) {
