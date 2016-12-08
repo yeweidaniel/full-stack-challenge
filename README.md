@@ -31,6 +31,7 @@ User
 * role: Admin or Employee
 * password: PropTypes.string
 * reviews: ids of this user's reviews
+
 Review
 * id: PropTypes.number,
 * author: id of author
@@ -38,6 +39,7 @@ Review
 * text: PropTypes.string,
 * createdDate: PropTypes.date,
 * assignees: ids of assigned employees
+
 Feedback
 * id: PropTypes.number,
 * author: id of author
