@@ -26,23 +26,23 @@ Dependency Management: NPM
 
 ###Domain Objects
 User
-    * id: PropTypes.number,
-    * name: PropTypes.string,
-    * role: Admin or Employee
-    * password: PropTypes.string
-    * reviews: ids of this user's reviews
+* id: PropTypes.number,
+* name: PropTypes.string,
+* role: Admin or Employee
+* password: PropTypes.string
+* reviews: ids of this user's reviews
 Review
-    * id: PropTypes.number,
-    * author: id of author
-    * feedbacks: list of feedbacks
-    * text: PropTypes.string,
-    * createdDate: PropTypes.date,
-    * assignees: ids of assigned employees
+* id: PropTypes.number,
+* author: id of author
+* feedbacks: list of feedbacks
+* text: PropTypes.string,
+* createdDate: PropTypes.date,
+* assignees: ids of assigned employees
 Feedback
-    * id: PropTypes.number,
-    * author: id of author
-    * text: PropTypes.string,
-    * createdDate: PropTypes.date
+* id: PropTypes.number,
+* author: id of author
+* text: PropTypes.string,
+* createdDate: PropTypes.date
 
 ###API Design
 POST /api/v1/login
