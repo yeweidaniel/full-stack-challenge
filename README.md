@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ###Design Architecture:
 
-Top Level Components (eg. AdminContainer) -> Action Creator (Makes API Call) -> Reducer -> Top Level Components -> Lower Level Components
+Top Level Components (eg. AdminComponent) -> Action Creator (Makes API Call) -> Reducer -> Top Level Components -> Lower Level Components
 
 ###Technology Used
 
