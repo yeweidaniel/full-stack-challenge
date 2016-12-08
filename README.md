@@ -6,6 +6,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Top Level Components (eg. AdminContainer) -> Action Creator (Makes API Call) -> Reducer -> Top Level Components -> Lower Level Components
 
+###Technology Used
+UI Rendering: React/Redux, React Router, Webpack, Redux-Thunk
+Dependency Management: NPM
+
 ###UI Hierarchy
 
 LoginComponent
@@ -19,10 +23,6 @@ AdminComponent
 EmployeeComponent 
 * localhost:3000/employee/{id}
 * PerformanceReviewComponent
-
-###Technology Used
-UI Rendering: React, React Router, Webpack
-Dependency Management: NPM
 
 ###Domain Objects
 User
