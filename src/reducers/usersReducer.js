@@ -1,6 +1,6 @@
 function initialize() {
 	return {
-		users: []
+		users: [{id: 1, name: 'user1'}]
 	};
 }
 

@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LoginComponent from './containers/loginComponent';
+import AdminComponent from './containers/adminComponent';
 import './index.css';
-// import { Router, Route, Link, browserHistory } from 'react-router'
-
-import { createStore } from 'redux'
-import combinedApp from './reducers'
-import App from './components/App'
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import combinedApp from './reducers';
 
 let store = createStore(combinedApp)
 
 ReactDOM.render(
-  <LoginComponent />,
+  	<div>
+  		<Provider store={store}>
+  			{() => <AdminComponent store={store} />}
+  		</Provider>
+  	</div>,
   document.getElementById('root')
 );
