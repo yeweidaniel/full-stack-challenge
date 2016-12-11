@@ -1,10 +1,15 @@
 import { PropTypes } from 'react';
 
-export default class Employee {
+export const Roles = {
+	Admin: 'Admin',
+	Employee: 'Employee'
+}
+
+export default class User {
 	static propShape = {
 		id: PropTypes.number,
 		name: PropTypes.string,
-		role: PropTypes.enum,
+		role: PropTypes.string,
 	};
 
 	constructor(...props) {

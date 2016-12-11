@@ -1,6 +1,11 @@
 function initialize() {
 	return {
-		users: [{id: 1, name: 'user1'}]
+		users: [
+			{id: 1, name: 'admin1', role: 'Admin'},
+			{id: 2, name: 'employee1', role: 'Employee'},
+			{id: 3, name: 'employee2', role: 'Employee'}
+
+		]
 	};
 }
 

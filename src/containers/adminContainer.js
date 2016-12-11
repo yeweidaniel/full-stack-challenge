@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/loginComponent.css';
+import '../styles/adminContainer.css';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => ({
@@ -13,15 +13,29 @@ class Admin extends Component {
     this.state = {};
   }
 
+  onAddUserClick() {
+  }
+
+  renderAddUserButton() {
+    return (
+      <div>
+        <input type="button"
+          value="Add User"
+          onClick={e => this.onAddUserClick(e)} />
+      </div>
+    );
+  }
+
   renderUsers() {
     const { users } = this.props;
     const usersUI = [];
     if (users) {
       users.forEach(user => {
         usersUI.push(
-          <div>
-            <span>{user.id}</span>
-            <span>{user.name}</span>
+          <div className="d-user-row">
+            <span className="d-user-info">{user.id}</span>
+            <span className="d-user-info">{user.name}</span>
+            <span className="d-user-info">{user.role}</span>
           </div>
         );
       });
@@ -33,6 +47,7 @@ class Admin extends Component {
   render() {
     return (
       <div>
+      <div className="d-user-title">Users List</div>
         {this.renderUsers()}
       </div>
     );
