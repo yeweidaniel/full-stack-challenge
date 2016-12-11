@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import '../styles/loginComponent.css';
 import { connect } from 'react-redux';
 
-@connect(state => ({
-  users: state.users
-}))
-export default class AdminComponent extends Component {
+const mapStateToProps = (state) => ({
+  users: state.users.users
+});
+
+class Admin extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -25,6 +26,8 @@ export default class AdminComponent extends Component {
         );
       });
     }
+
+    return usersUI;
   }
 
   render() {
@@ -35,3 +38,7 @@ export default class AdminComponent extends Component {
     );
   }
 }
+
+const AdminContainer = connect(mapStateToProps)(Admin);
+
+export default AdminContainer;
