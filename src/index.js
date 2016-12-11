@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import AdminContainer from './containers/adminContainer';
 import './index.css';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import combinedApp from './reducers';
+import { createStore, applyMiddleware } from 'redux';
+import combinedApp from './reducers/index.js';
+import thunkMiddleware from 'redux-thunk';
+import logger from 'redux-logger';
 
-let store = createStore(combinedApp)
+export const store = createStore(
+	combinedApp,
+	{},
+	applyMiddleware(logger, thunkMiddleware)
+);
 
 ReactDOM.render(
   	<div>
@@ -16,3 +22,5 @@ ReactDOM.render(
   	</div>,
   document.getElementById('root')
 );
+
+window.store = store;

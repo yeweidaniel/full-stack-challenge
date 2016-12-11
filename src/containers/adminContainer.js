@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import '../styles/adminContainer.css';
 import { connect } from 'react-redux';
+import { store } from '../index.js';
 
 const mapStateToProps = (state) => ({
-  users: state.users.users
+  data: state.data
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -44,7 +45,7 @@ class Admin extends Component {
   }
 
   removeUser(id) {
-    this.props.dispatch({
+    store.dispatch({
       type: "REMOVE_USER",
       payload: id
     });
@@ -59,7 +60,7 @@ class Admin extends Component {
   }
 
   renderUsers() {
-    const { users } = this.props;
+    const { users } = this.props.data;
     const usersRows = [];
     let key = 1;
     users.forEach(user => {
@@ -83,6 +84,7 @@ class Admin extends Component {
   render() {
     return (
       <div>
+      <div className="d-admin-view">Administrator View</div>
       <div className="d-user-title">Users List</div>
         {this.renderUsers()}
       </div>

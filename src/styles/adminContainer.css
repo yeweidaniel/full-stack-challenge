@@ -1,12 +1,18 @@
 .d-user-title {
   font-size: 20px;
-  margin: 10px;
+  margin: 30px;
+}
+
+.d-admin-view {
+	font-size: 25px;
+	margin: 20px;
 }
 
 .d-user-table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    margin: 30px;
 }
 
 td, th {

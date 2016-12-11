@@ -8,7 +8,8 @@ export default class Review {
 		feedbacks: PropTypes.arrayOf(PropTypes.shape({...Feedback.propShape}))
 		text: PropTypes.string,
 		createdDate: PropTypes.date,
-		assigneeEmployeeIDs: PropTypes.array
+		assigneeEmployeeIDs: PropTypes.array,
+		payee: PropTypes.number
 	};
 
 	constructor(...props) {

@@ -4,7 +4,9 @@ function initialize() {
 			{id: 1, name: 'admin1', role: 'Admin'},
 			{id: 2, name: 'employee1', role: 'Employee'},
 			{id: 3, name: 'employee2', role: 'Employee'}
-
+		],
+		reviews: [
+			{id: 1, author: 1, text: "great job", assigneeEmployeeIDs:[3], payee: 2}
 		]
 	};
 }
@@ -13,7 +15,7 @@ const initialState = initialize();
 
 const handlers = {};
 
-function users(state = initialState, action) {
+function data(state = initialState, action) {
 	const {type} = action;
 	if (!handlers[type]) {
 		return state;
@@ -37,4 +39,4 @@ handlers['USERS_RETRIEVED'] = (state, {payload}) => {
 	};
 };
 
-export default users
+export default data
