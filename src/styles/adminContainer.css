@@ -1,13 +1,20 @@
-.d-user-info {
-  margin-right: 20px;
-  margin-left: 10px;
-}
-
-.d-user-row {
-  margin-bottom: 20px;
-}
-
 .d-user-title {
   font-size: 20px;
   margin: 10px;
+}
+
+.d-user-table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.d-user-row:nth-child(even) {
+    background-color: #dddddd;
 }

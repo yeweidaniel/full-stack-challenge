@@ -21,6 +21,15 @@ function users(state = initialState, action) {
 	return handlers[type](state, action);
 }
 
+handlers["REMOVE_USER"] = (state, {payload}) => {
+	const newState = {...state};
+	const index = newState.users.findIndex(u => u.id === payload);
+	if (index >= 0) {
+		newState.users.splice(index, 1);
+	}
+	return newState;
+};
+
 handlers['USERS_RETRIEVED'] = (state, {payload}) => {
 	return {
 		...state,

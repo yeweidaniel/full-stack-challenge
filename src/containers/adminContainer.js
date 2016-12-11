@@ -6,6 +6,12 @@ const mapStateToProps = (state) => ({
   users: state.users.users
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  onRemove: (id) => {
+    dispatch({type: "REMOVE_USER", payload: id})
+  }
+});
+
 class Admin extends Component {
   constructor(props, context) {
     super(props, context);
@@ -26,22 +32,52 @@ class Admin extends Component {
     );
   }
 
+  renderUserRow(user, key) {
+    return (
+      <tr className="d-user-row" key={key}>
+        <td>{user.id}</td>
+        <td>{user.name}</td>
+        <td>{user.role}</td>
+        <td>{this.renderRemoveUserButton(user)}</td>
+      </tr>
+    );
+  }
+
+  removeUser(id) {
+    this.props.dispatch({
+      type: "REMOVE_USER",
+      payload: id
+    });
+  }
+
+  renderRemoveUserButton(user) {
+    return (
+      <input type="Button"
+        value="Remove"
+        onClick={() => this.removeUser(user.id)} />
+      );
+  }
+
   renderUsers() {
     const { users } = this.props;
-    const usersUI = [];
-    if (users) {
-      users.forEach(user => {
-        usersUI.push(
-          <div className="d-user-row">
-            <span className="d-user-info">{user.id}</span>
-            <span className="d-user-info">{user.name}</span>
-            <span className="d-user-info">{user.role}</span>
-          </div>
-        );
-      });
-    }
-
-    return usersUI;
+    const usersRows = [];
+    let key = 1;
+    users.forEach(user => {
+      usersRows.push(this.renderUserRow(user, key++));
+    })
+    return (
+      <table className="d-user-table">
+        <tbody>
+          <tr key={0} className="d-user-row">
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th />
+          </tr>
+          {usersRows}
+          </tbody>
+      </table>
+    );
   }
 
   render() {
@@ -54,6 +90,6 @@ class Admin extends Component {
   }
 }
 
-const AdminContainer = connect(mapStateToProps)(Admin);
+const AdminContainer = connect(mapStateToProps, mapDispatchToProps)(Admin);
 
 export default AdminContainer;
