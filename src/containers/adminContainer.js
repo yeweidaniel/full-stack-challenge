@@ -39,7 +39,7 @@ class Admin extends Component {
         <td>{user.id}</td>
         <td>{user.name}</td>
         <td>{user.role}</td>
-        <td>{this.renderRemoveUserButton(user)}</td>
+        <td>{this.renderActionButtons(user)}</td>
       </tr>
     );
   }
@@ -51,11 +51,41 @@ class Admin extends Component {
     });
   }
 
-  renderRemoveUserButton(user) {
+  showUserReviews(id) {
+    store.dispatch({
+      type: "SHOW_USER_REVIEWS",
+      id
+    });
+  }
+
+  renderActionButtons(user) {
     return (
-      <input type="Button"
-        value="Remove"
-        onClick={() => this.removeUser(user.id)} />
+      <div>
+        <span>
+          <input type="Button"
+            value="Remove"
+            onClick={() => this.removeUser(user.id)} />
+        </span>
+        <span>
+          <input type="Button"
+            value="Show Reviews"
+            onClick={() => this.showUserReviews(user.id)} />
+        </span>
+      </div>
+      );
+  }
+
+  renderReviews() {
+    const { data: { users, reviews, showReviewsFor } } = this.props;
+
+    if (!showReviewsFor) {
+      return null;
+    }
+
+    const title = "Showing Reviews For User " + showReviewsFor;
+
+    return (
+      <div className="d-user-title">{title}</div>
       );
   }
 
@@ -87,6 +117,7 @@ class Admin extends Component {
       <div className="d-admin-view">Administrator View</div>
       <div className="d-user-title">Users List</div>
         {this.renderUsers()}
+        {this.renderReviews()}
       </div>
     );
   }

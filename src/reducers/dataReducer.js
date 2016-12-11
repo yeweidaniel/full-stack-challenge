@@ -5,6 +5,7 @@ function initialize() {
 			{id: 2, name: 'employee1', role: 'Employee'},
 			{id: 3, name: 'employee2', role: 'Employee'}
 		],
+		showReviewsFor: undefined,
 		reviews: [
 			{id: 1, author: 1, text: "great job", assigneeEmployeeIDs:[3], payee: 2}
 		]
@@ -30,6 +31,13 @@ handlers["REMOVE_USER"] = (state, {payload}) => {
 		newState.users.splice(index, 1);
 	}
 	return newState;
+};
+
+handlers["SHOW_USER_REVIEWS"] = (state, { id }) => {
+	return {
+		...state,
+		showReviewsFor: id
+	}
 };
 
 handlers['USERS_RETRIEVED'] = (state, {payload}) => {
