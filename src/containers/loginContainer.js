@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/loginComponent.css';
+import '../styles/loginContainer.css';
 import { store } from '../index.js';
 
 const mapStateToProps = (state) => ({

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { store } from '../index.js';
 import Users from '../components/usersComponent.js';
 import Reviews from '../components/reviewsComponent.js';
+import * as UsersActionCreators from './actionCreators/usersActions.js';
 
 const mapStateToProps = (state) => ({
   data: state.data
@@ -23,17 +24,11 @@ class Admin extends Component {
   }
 
   removeUser(id) {
-    store.dispatch({
-      type: "REMOVE_USER",
-      payload: id
-    });
+    store.actions.usersActions.removeUser(id);
   }
 
   showUserReviews(id) {
-    store.dispatch({
-      type: "SHOW_USER_REVIEWS",
-      id
-    });
+    store.actions.usersActions.showUserReviews(id);
   }
 
   getActions() {

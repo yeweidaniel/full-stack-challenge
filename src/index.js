@@ -7,6 +7,7 @@ import { createStore, applyMiddleware } from 'redux';
 import combinedApp from './reducers/index.js';
 import thunkMiddleware from 'redux-thunk';
 import logger from 'redux-logger';
+import * as usersActions from './actionCreators/usersActions.js';
 
 export const store = createStore(
 	combinedApp,
@@ -22,5 +23,9 @@ ReactDOM.render(
   	</div>,
   document.getElementById('root')
 );
+
+store.actions = {
+	usersActions: bindActionCreators(usersActions, store.dispatch)
+};
 
 window.store = store;

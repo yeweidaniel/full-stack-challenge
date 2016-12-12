@@ -31,9 +31,9 @@ handlers["LOGIN_REQUEST"] = (state, {payload}) => {
 	return state;
 };
 
-handlers["REMOVE_USER"] = (state, {payload}) => {
+handlers["REMOVE_USER"] = (state, { id }) => {
 	const newState = {...state};
-	const index = newState.users.findIndex(u => u.id === payload);
+	const index = newState.users.findIndex(u => u.id === id);
 	if (index >= 0) {
 		newState.users.splice(index, 1);
 	}
