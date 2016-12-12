@@ -6,6 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Top Level Containers (eg. AdminContainer) -> Dispatch Actions (Makes API Call) -> Reducer -> Top Level Containers -> Lower Level Presentations Components
 
+* Containers: Connect Redux state to UI.  Delegate rendering to individual components, delegate API handling to action creators
+* Components: Responsible specifically for rendering
+* Action Creators: Communicate with API and/or dispatch actions
+* Reducers: Handle dispatched actions by modifying application state
+
 ###Technology Used
 
 * UI Rendering: React/Redux, React Router, React Logger
