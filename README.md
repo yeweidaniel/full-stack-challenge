@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ###Design Architecture:
 
-Top Level Containers (eg. AdminContainer) -> Dispatch Actions (Makes API Call) -> Reducer -> Top Level Containers -> Lower Level Presentations Components
+Top Level Containers (eg. AdminContainer) -> Action Creators -> Reducer -> Top Level Containers -> Lower Level Presentations Components
 
 * Containers: Connect Redux state to UI.  Delegate rendering to individual components, delegate API handling to action creators
 * Components: Responsible specifically for rendering
