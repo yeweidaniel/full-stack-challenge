@@ -7,7 +7,7 @@ function initialize() {
 		],
 		showReviewsFor: undefined,
 		reviews: [
-			{id: 1, author: 1, text: "great job", assigneeEmployeeIDs:[3], payee: 2}
+			{id: 1, author: 1, text: "great job", assignees:[3], payee: 2}
 		]
 	};
 }

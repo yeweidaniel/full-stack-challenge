@@ -75,22 +75,60 @@ class Admin extends Component {
       );
   }
 
+  renderReview(review) {
+    const { users } = this.props.data;
+    const assigneesView = review.assignees.map(assignee => {
+      const index = users.findIndex(a => a.id === assignee);
+      return (
+        <div>{"(" + users[index].id + ") " + users[index].name}</div>
+        );
+    });
+
+    return (
+      <tr>
+        <td>{review.date}</td>
+        <td>{review.author}</td>
+        <td>{review.text}</td>
+        <td>
+          {assigneesView}
+        </td>
+      </tr>
+      );
+  }
+
   renderReviews() {
-    const { data: { users, reviews, showReviewsFor } } = this.props;
+    const { data: { reviews, showReviewsFor } } = this.props;
 
     if (!showReviewsFor) {
       return null;
     }
 
     const title = "Showing Reviews For User " + showReviewsFor;
+    const filteredReviews = reviews.filter(review => review.payee === showReviewsFor);
+    const reviewedDisplays = filteredReviews.map(review => this.renderReview(review));
 
     return (
-      <div className="d-user-title">{title}</div>
+      <div>
+        <div className="d-user-title">{title}</div>
+        <div>
+          <table className="d-user-table">
+            <tbody>
+              <tr key={0} className="d-user-row">
+                <th>Date</th>
+                <th>Author</th>
+                <th>Content</th>
+                <th>Assignees</th>
+              </tr>
+              {reviewedDisplays}
+              </tbody>
+          </table>
+        </div>
+      </div>
       );
   }
 
   renderUsers() {
-    const { users } = this.props.data;
+    const { data: { users }} = this.props;
     const usersRows = [];
     let key = 1;
     users.forEach(user => {
