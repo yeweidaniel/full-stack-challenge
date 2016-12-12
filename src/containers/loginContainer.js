@@ -17,10 +17,8 @@ export default class LoginContainer extends Component {
   }
 
   onSubmit() {
-    store.dispatch({
-      type: "LOGIN_REQUEST",
-      payload: {this.state.id, this.state.password}
-    });
+    const { id, password } = this.state;
+    store.actions.loginActions.login(id, password);
   }
 
   onIdChange(val) {
@@ -34,25 +32,24 @@ export default class LoginContainer extends Component {
   render() {
     return (
       <div className="App">
-        <div clasName="login-title">Login Page</div>
-        <div className="App-intro">
-          Please enter your employee id and password
+        <div className="d-login-title">
+          User Performance Review Portal
         </div>
-        <div>
-          <span>Employee ID</span>
+        <div className="d-login-field">
+          <span className="d-login-prompt">Employee ID</span>
           <span>
-            <input type="text" id="employeeId" onChange={this.onIdChange.bind(this)} />
+            <input className="d-input-field" type="text" id="employeeId" onChange={this.onIdChange.bind(this)} />
+          </span>
+        </div>
+        <div className="d-login-field">
+          <span className="d-login-prompt">Password</span>
+          <span>
+            <input className="d-input-field" type="password" id="employeePassword" onChange={this.onPasswordChange.bind(this)} />
           </span>
         </div>
         <div>
-          <span>Password</span>
           <span>
-            <input type="password" id="employeePassword" onChange={this.onPasswordChange.bind(this)} />
-          </span>
-        </div>
-        <div>
-          <span>
-            <input type="submit" text="Submit" onClick={this.onSubmit} />
+            <input className="d-button" type="submit" text="Submit" onClick={this.onSubmit} />
           </span>
         </div>
       </div>

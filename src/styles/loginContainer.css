@@ -13,7 +13,34 @@
   font-size: large;
 }
 
-.login-title {
-  font-size: 16px;
+.d-login-title {
+  font-size: 24px;
+  margin-top: 30px;
   margin-bottom: 20px;
+  vertical-align: center;
+}
+
+.d-login-field {
+  font-size: 20px;
+  margin: 20px;
+  vertical-align: center;
+}
+
+.d-login-prompt {
+	margin-right: 10px;
+	vertical-align-align: center;
+}
+
+.d-button {
+	border: 1px solid;
+	min-width: 100px;
+	min-height: 30px;
+	font-size: 20px;
+	box-sizing: border-box;
+	cursor: pointer;
+	vertical-align: center;
+}
+
+.d-input-field {
+	font-size: 24px;
 }
