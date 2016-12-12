@@ -4,11 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ###Design Architecture:
 
-Top Level Components (eg. AdminComponent) -> Action Creator (Makes API Call) -> Reducer -> Top Level Components -> Lower Level Components
+Top Level Containers (eg. AdminContainer) -> Dispatch Actions (Makes API Call) -> Reducer -> Top Level Containers -> Lower Level Presentations Components
 
 ###Technology Used
 
-* UI Rendering: React/Redux, React Router, Webpack, Redux-Thunk
+* UI Rendering: React/Redux, React Router, React Logger
 * Dependency Management: NPM
 
 ###UI Hierarchy
@@ -31,12 +31,12 @@ User
 * name: PropTypes.string,
 * role: Admin or Employee
 * password: PropTypes.string
-* reviews: ids of this user's reviews
 
 Review
 * id: PropTypes.number,
-* author: id of author
-* feedbacks: list of feedbacks
+* author: id of author,
+* payee: id of payee this review is based on
+* feedbacks: list of feedback ids
 * text: PropTypes.string,
 * createdDate: PropTypes.date,
 * assignees: ids of assigned employees
