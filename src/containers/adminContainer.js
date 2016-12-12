@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { store } from '../index.js';
 import Users from '../components/usersComponent.js';
 import Reviews from '../components/reviewsComponent.js';
-import * as UsersActionCreators from './actionCreators/usersActions.js';
 
 const mapStateToProps = (state) => ({
   data: state.data

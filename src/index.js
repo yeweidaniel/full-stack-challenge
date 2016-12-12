@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import AdminContainer from './containers/adminContainer';
 import './index.css';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, bindActionCreators } from 'redux';
 import combinedApp from './reducers/index.js';
 import thunkMiddleware from 'redux-thunk';
 import logger from 'redux-logger';
