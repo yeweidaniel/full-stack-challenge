@@ -8,7 +8,10 @@ function initialize() {
 		showReviewsFor: undefined,
 		reviews: [
 			{id: 1, author: 1, text: "great job", assignees:[3], payee: 2}
-		]
+		],
+		userContext: {
+			id: undefined
+		}
 	};
 }
 
@@ -23,6 +26,10 @@ function data(state = initialState, action) {
 	}
 	return handlers[type](state, action);
 }
+
+handlers["LOGIN_REQUEST"] = (state, {payload}) => {
+	return state;
+};
 
 handlers["REMOVE_USER"] = (state, {payload}) => {
 	const newState = {...state};

@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import '../styles/loginComponent.css';
+import { store } from '../index.js';
 
-export default class LoginComponent extends Component {
+const mapStateToProps = (state) => ({
+  userContext: state.userContext
+});
+
+export default class LoginContainer extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -12,7 +17,10 @@ export default class LoginComponent extends Component {
   }
 
   onSubmit() {
-    alert("hi");
+    store.dispatch({
+      type: "LOGIN_REQUEST",
+      payload: {this.state.id, this.state.password}
+    });
   }
 
   onIdChange(val) {
