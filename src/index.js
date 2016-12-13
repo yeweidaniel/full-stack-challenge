@@ -5,7 +5,7 @@ import './index.css';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, bindActionCreators } from 'redux';
 import combinedApp from './reducers/index.js';
-import thunkMiddleware from 'redux-thunk';
+import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import * as usersActions from './actionCreators/usersActions.js';
 import * as loginActions from './actionCreators/loginActions.js';
@@ -13,13 +13,13 @@ import * as loginActions from './actionCreators/loginActions.js';
 export const store = createStore(
 	combinedApp,
 	{},
-	applyMiddleware(logger, thunkMiddleware)
+	applyMiddleware(thunk, logger)
 );
 
 ReactDOM.render(
   	<div>
   		<Provider store={store}>
-  			{() => <LoginContainer store={store} />}
+  			<LoginContainer store={store} />
   		</Provider>
   	</div>,
   document.getElementById('root')
