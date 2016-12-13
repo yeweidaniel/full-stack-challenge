@@ -7,10 +7,12 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, bindActionCreators } from 'redux';
 import combinedApp from './reducers/index.js';
 import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+import createLogger from 'redux-logger';
 import * as usersActions from './actionCreators/usersActions.js';
 import * as loginActions from './actionCreators/loginActions.js';
 import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
+
+const logger = createLogger();
 
 export const store = createStore(
 	combinedApp,
