@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import LoginContainer from './containers/loginContainer';
+import AdminContainer from './containers/adminContainer';
 import './index.css';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, bindActionCreators } from 'redux';
@@ -9,6 +10,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import * as usersActions from './actionCreators/usersActions.js';
 import * as loginActions from './actionCreators/loginActions.js';
+import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
 
 export const store = createStore(
 	combinedApp,
@@ -19,7 +21,13 @@ export const store = createStore(
 ReactDOM.render(
   	<div>
   		<Provider store={store}>
-  			<LoginContainer store={store} />
+        <Router history={browserHistory}>
+          <Route path="/" component={LoginContainer}>
+            <IndexRedirect to="/login" />
+            <Route path="login" component={LoginContainer}/>
+            <Route path="admin" component={AdminContainer}/>
+          </Route>
+        </Router>
   		</Provider>
   	</div>,
   document.getElementById('root')

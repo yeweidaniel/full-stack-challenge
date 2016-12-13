@@ -17,23 +17,28 @@ export default class LoginContainer extends Component {
     };
   }
 
+  onLoginSuccess() {
+  }
+
+  onLoginFailure(errorMsg) {
+    this.setState({
+      errorMsg
+    })
+  }
+
   onSubmit() {
     const { id, password } = this.state;
     store.actions.loginActions.login(id, password, 
       undefined,
-      (errorMsg) => {
-        this.setState({
-          errorMsg
-        })
-    });
+      this.onLoginFailure.bind(this));
   }
 
-  onIdChange(val) {
-    this.setState({id: val});
+  onIdChange(event) {
+    this.setState({id: event.target.value});
   }
 
-  onPasswordChange(val) {
-    this.setState({password: val})
+  onPasswordChange(event) {
+    this.setState({password: event.target.value})
   }
 
   render() {

@@ -28,6 +28,7 @@
 
 .d-login-prompt {
 	margin-right: 20px;
+	border:	none;
 }
 
 .d-button {
@@ -44,6 +45,7 @@
 
 .d-input-field {
 	font-size: 24px;
+	margin-left: 20px;
 }
 
 .d-error-msg {
