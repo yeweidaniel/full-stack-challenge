@@ -25,8 +25,8 @@ ReactDOM.render(
           <Route path="/" component={LoginContainer}>
             <IndexRedirect to="/login" />
             <Route path="login" component={LoginContainer}/>
-            <Route path="admin" component={AdminContainer}/>
           </Route>
+          <Route path="admin" component={AdminContainer}/>
         </Router>
   		</Provider>
   	</div>,

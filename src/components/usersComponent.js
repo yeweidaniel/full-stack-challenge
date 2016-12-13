@@ -74,7 +74,7 @@ export default class Users extends Component {
   render() {
     return (
       <div>
-      <div className="d-admin-view">Administrator View</div>
+      <div className="d-admin-view">{`Administrator View`}</div>
       <div className="d-user-title">Users List</div>
         {this.renderUsers()}
       </div>

@@ -38,12 +38,13 @@ class Admin extends Component {
   }
 
   render() {
-    const { data: { users } } = this.props;
+    const { data: { users, userContext } } = this.props;
     return (
       <div>
         <Users 
           actions={this.getActions()}
-          users={users} />
+          users={users}
+          userContext={userContext} />
         <Reviews
           data={this.props.data} />
       </div>

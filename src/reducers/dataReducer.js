@@ -27,8 +27,22 @@ function data(state = initialState, action) {
 	return handlers[type](state, action);
 }
 
-handlers["LOGIN_REQUEST"] = (state, {payload}) => {
-	return state;
+handlers["LOGOUT"] = (state) => {
+	return {
+		...state,
+		userContext: {
+			id: undefined
+		}
+	};
+}
+
+handlers["LOGIN_SUCCESS"] = (state, { id }) => {
+	return {
+		...state,
+		userContext: {
+			id
+		}
+	};
 };
 
 handlers["REMOVE_USER"] = (state, { id }) => {
