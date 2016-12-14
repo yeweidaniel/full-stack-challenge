@@ -30,10 +30,29 @@ class Admin extends Component {
     store.actions.usersActions.showUserReviews(id);
   }
 
+  removeAssignee(reviewId, assignee) {
+    store.actions.usersActions.removeAssignee(reviewId, assignee);
+  }
+
+  addAssignee(reviewId, assignee) {
+    if (!reviewId || !assignee) {
+      return;
+    }
+
+    store.actions.usersActions.addAssignee(reviewId, assignee);
+  }
+
   getActions() {
     return {
       removeUser: this.removeUser,
       showUserReviews: this.showUserReviews
+    };
+  }
+
+  getReviewActions() {
+    return {
+      removeAssignee: this.removeAssignee,
+      addAssignee: this.addAssignee
     };
   }
 
@@ -46,7 +65,8 @@ class Admin extends Component {
           users={users}
           userContext={userContext} />
         <Reviews
-          data={this.props.data} />
+          data={this.props.data} 
+          actions={this.getReviewActions()} />
       </div>
     );
   }

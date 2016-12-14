@@ -1,32 +1,84 @@
-import React, { Component } from 'react';
-import '../styles/adminContainer.css';
+import React, { Component, PropTypes } from 'react';
+import '../styles/reviewsComponent.css';
 
 export default class Reviews extends Component {
+  static propTypes = {
+    data: PropTypes.object,
+    actions: PropTypes.object
+  }
+
   constructor(props, context) {
     super(props, context);
 
-    this.state = {};
+    this.state = {
+      selectedAssignee: undefined
+    };
   }
 
   renderReview(review) {
-    const { users } = this.props.data;
-    const assigneesView = review.assignees.map(assignee => {
-      const index = users.findIndex(a => a.id === assignee);
-      return (
-        <div>{"(" + users[index].id + ") " + users[index].name}</div>
-        );
-    });
+    const assigneesView = this.renderAssignees(review);
 
     return (
-      <tr>
-        <td>{review.date}</td>
-        <td>{review.author}</td>
-        <td>{review.text}</td>
-        <td>
-          {assigneesView}
-        </td>
-      </tr>
+      <table className="d-review-table">
+        <tbody>
+          <tr key="0">
+            <td>Date</td>
+            <td>{review.createdDate}</td>
+          </tr>
+          <tr key="1">
+            <td>Author</td>
+            <td>{review.author}</td>
+          </tr>
+          <tr key="2">
+            <td>Content</td>
+            <td>{review.content}</td>
+          </tr>
+          <tr key="3">
+            <td>Assignees</td>
+            <td>{assigneesView}</td>
+          </tr>
+        </tbody>
+      </table>
       );
+  }
+
+  renderExistingAssignee(reviewId, assignee) {
+    return (
+      <div className="d-assignee">
+        <div className="d-assignee-name">{assignee}</div>
+        <div className="d-remove-assignee" onClick={() => this.props.actions.removeAssignee(reviewId, assignee)}>Remove</div>
+      </div>
+      );
+  }
+
+  newAssigneeSelected(val) {
+    this.setState({
+      selectedAssignee: val.target.value
+    });
+  }
+
+  renderAssignees(review) {
+    const existingAssignees = review.assignees.map(assignee => this.renderExistingAssignee(review.id, assignee));
+    const { data: { users } } = this.props;
+    const remainingUsers = users.filter(a => review.assignees.indexOf(a) === -1);
+    const options = remainingUsers.map(user => (
+      <option value={user.id}>{'User ' + user.id}</option>)
+    );
+
+    return (
+      <div>
+        {existingAssignees}
+        <div>
+          <select className="d-assignee-select" onChange={this.newAssigneeSelected.bind(this)}>
+            <option value="" />
+            {options}
+          </select>
+          <input type="Button"
+            value="Add Assignee"
+            onClick={() => this.props.actions.addAssignee(review.id, this.state.selectedAssignee)} />
+        </div>
+      </div>
+    );
   }
 
   render() {
@@ -36,7 +88,7 @@ export default class Reviews extends Component {
       return null;
     }
 
-    const title = "Showing Reviews For User " + showReviewsFor;
+    const title = "Showing All Reviews For User " + showReviewsFor;
     const filteredReviews = reviews.filter(review => review.payee === showReviewsFor);
     const reviewedDisplays = filteredReviews.map(review => this.renderReview(review));
 
@@ -44,17 +96,7 @@ export default class Reviews extends Component {
       <div>
         <div className="d-user-title">{title}</div>
         <div>
-          <table className="d-user-table">
-            <tbody>
-              <tr key={0} className="d-user-row">
-                <th>Date</th>
-                <th>Author</th>
-                <th>Content</th>
-                <th>Assignees</th>
-              </tr>
-              {reviewedDisplays}
-              </tbody>
-          </table>
+          {reviewedDisplays}
         </div>
       </div>
       );

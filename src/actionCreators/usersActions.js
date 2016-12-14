@@ -13,3 +13,19 @@ export function showUserReviews(id) {
       id
     };
   }
+
+export function removeAssignee(reviewId, assignee) {
+  return {
+    type: "REMOVE_ASSIGNEE",
+    reviewId,
+    assignee
+  }
+}
+
+export function addAssignee(reviewId, assignee) {
+  return {
+    type: "ADD_ASSIGNEE",
+    reviewId,
+    assignee
+  }
+}

@@ -7,7 +7,7 @@ function initialize() {
 		],
 		showReviewsFor: undefined,
 		reviews: [
-			{id: 1, author: 1, text: "great job", assignees:[3], payee: 2}
+			{id: 1, author: 1, content: "you did a great job", assignees:[3], payee: 2, createdDate: "2016-12-03"}
 		],
 		userContext: {
 			id: undefined
@@ -43,6 +43,26 @@ handlers["LOGIN_SUCCESS"] = (state, { id }) => {
 			id
 		}
 	};
+};
+
+handlers["REMOVE_ASSIGNEE"] = (state, { reviewId, assignee }) => {
+	const newState = {...state};
+	const affectedReview = newState.reviews.findIndex(r => r.id === reviewId);
+	const indexToRemove = newState.reviews[affectedReview].assignees.indexOf(assignee);
+	newState.reviews[affectedReview].assignees.splice(indexToRemove, 1);
+
+	return newState;
+};
+
+handlers["ADD_ASSIGNEE"] = (state, { reviewId, assignee }) => {
+	const newState = {...state};
+	const affectedReview = newState.reviews.findIndex(r => r.id === reviewId);
+
+	if (newState.reviews[affectedReview].assignees.indexOf(Number(assignee)) < 0) {
+		newState.reviews[affectedReview].assignees.push(Number(assignee));
+	}
+
+	return newState;
 };
 
 handlers["REMOVE_USER"] = (state, { id }) => {
