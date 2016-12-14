@@ -19,7 +19,7 @@ export default class Reviews extends Component {
     const assigneesView = this.renderAssignees(review);
 
     return (
-      <table className="d-review-table">
+      <table className="d-review-table" key={review.id}>
         <tbody>
           <tr key="0">
             <td>Date</td>
@@ -44,7 +44,7 @@ export default class Reviews extends Component {
 
   renderExistingAssignee(reviewId, assignee) {
     return (
-      <div className="d-assignee">
+      <div className="d-assignee" key={assignee}>
         <div className="d-assignee-name">{assignee}</div>
         <div className="d-remove-assignee" onClick={() => this.props.actions.removeAssignee(reviewId, assignee)}>Remove</div>
       </div>
@@ -61,8 +61,8 @@ export default class Reviews extends Component {
     const existingAssignees = review.assignees.map(assignee => this.renderExistingAssignee(review.id, assignee));
     const { data: { users } } = this.props;
     const remainingUsers = users.filter(a => review.assignees.indexOf(a) === -1);
-    const options = remainingUsers.map(user => (
-      <option value={user.id}>{'User ' + user.id}</option>)
+    const options = remainingUsers.map((user, index) => (
+      <option value={user.id} key={index}>{'User ' + user.id}</option>)
     );
 
     return (
@@ -70,7 +70,7 @@ export default class Reviews extends Component {
         {existingAssignees}
         <div>
           <select className="d-assignee-select" onChange={this.newAssigneeSelected.bind(this)}>
-            <option value="" />
+            <option value="" key="-1" />
             {options}
           </select>
           <input type="Button"
