@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+###To Run
+1. Run 'npm install'
+2. Run 'npm start'
+
 ###Design Architecture:
 
 Top Level Containers (eg. AdminContainer) -> Action Creators -> Reducer -> Top Level Containers -> Lower Level Presentations Components
