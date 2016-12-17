@@ -1,9 +1,16 @@
 # Full Stack Developer Challenge
 
-###To Run
-1. Run 'npm install'
-2. Run 'npm start'
-3. App should now be running at localhost:3000
+###Start API Server
+1. Open new terminal, navigate to /apiServer folder
+2. Run 'npm install'
+3. Run 'npm start'
+4. API should now be running at localhost:8080
+
+###Start Run UI
+1. Open new terminal, navigate to root project folder
+2. Run 'npm install'
+3. Run 'npm start'
+4. App should now be running at localhost:3000
 	* Admin Credentials: 1/secret
 
 ###Design Architecture:
