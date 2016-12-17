@@ -74,6 +74,16 @@ handlers["REMOVE_USER"] = (state, { id }) => {
 	return newState;
 };
 
+handlers["ADD_USER"] = (state, { name, email, password, role }) => {
+	const newState = {...state};
+	const newId = Math.max.apply(Math, (state.users.map(a=>a.id))) + 1;
+	newState.users.push({
+		id: newId,
+		name, email, password, role
+	})
+	return newState;
+};
+
 handlers["SHOW_USER_REVIEWS"] = (state, { id }) => {
 	return {
 		...state,

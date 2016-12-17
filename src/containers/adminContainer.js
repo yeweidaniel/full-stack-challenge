@@ -34,6 +34,10 @@ class Admin extends Component {
     store.actions.usersActions.removeAssignee(reviewId, assignee);
   }
 
+  addNewUser(name, email, password, role) {
+    store.actions.usersActions.addUser(name, email, password, role);
+  }
+
   addAssignee(reviewId, assignee) {
     if (!reviewId || !assignee) {
       return;
@@ -45,7 +49,8 @@ class Admin extends Component {
   getActions() {
     return {
       removeUser: this.removeUser,
-      showUserReviews: this.showUserReviews
+      showUserReviews: this.showUserReviews,
+      addUser: this.addNewUser
     };
   }
 

@@ -24,3 +24,26 @@
 .d-user-row:nth-child(even) {
     background-color: #dddddd;
 }
+
+.d-add-user-button {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.d-new-user-field {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.d-new-user-area {
+    background-color: lightgray;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+.d-submit-button {
+    border: 1px solid;
+    font-size: 16px;
+    min-width: 80px;
+    margin-left:40px;
+}

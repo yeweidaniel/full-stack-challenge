@@ -5,7 +5,17 @@ export function removeUser(id) {
       type: "REMOVE_USER",
       id
     };
-  }
+}
+
+export function addUser(name, email, password, role) {
+  return {
+    type: "ADD_USER",
+    name,
+    email,
+    password,
+    role
+  };
+}
 
 export function showUserReviews(id) {
     return {
