@@ -4,20 +4,23 @@
 1. Run 'npm install'
 2. Run 'npm start'
 3. App Should be running now at localhost:3000
+	* Admin Credentials: 1/secret
 
 ###Design Architecture:
 
-Top Level Containers (eg. AdminContainer) -> Action Creators -> Reducer -> Top Level Containers -> Lower Level Presentations Components
+The front end rendering uses React.js, while business logic/API interaction is handled by Redux. The architectural flow is as follows:
 
-* Containers: Connect Redux state to UI.  Delegate rendering to individual components, delegate API handling to action creators
-* Components: Responsible specifically for rendering
+Top Level Containers -> Action Creators -> Reducer -> Top Level Containers -> Lower Level Presentations Components
+
+* Top Level Containers: Connect Redux state to React UI.  Delegate rendering to individual components, delegate API handling to action creators
+* Components: Responsible for rendering individual pages
 * Action Creators: Communicate with API and/or dispatch actions
 * Reducers: Handle dispatched actions by modifying application state
 
 ###Technology Used
 
-* UI Rendering: React/Redux, React Router, React Logger
-* Dependency Management: NPM
+* UI Rendering: React/Redux, React Router, React Logger, Webpack
+* Dependency Management: npm
 
 ###UI Hierarchy
 
