@@ -1,10 +1,9 @@
 # Full Stack Developer Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
 ###To Run
 1. Run 'npm install'
 2. Run 'npm start'
+3. App Should be running now at localhost:3000
 
 ###Design Architecture:
 
