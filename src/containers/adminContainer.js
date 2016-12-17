@@ -9,12 +9,6 @@ const mapStateToProps = (state) => ({
   data: state.data
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onRemove: (id) => {
-    dispatch({type: "REMOVE_USER", payload: id})
-  }
-});
-
 class Admin extends Component {
   constructor(props, context) {
     super(props, context);
@@ -77,6 +71,6 @@ class Admin extends Component {
   }
 }
 
-const AdminContainer = connect(mapStateToProps, mapDispatchToProps)(Admin);
+const AdminContainer = connect(mapStateToProps)(Admin);
 
 export default AdminContainer;

@@ -1,0 +1,8 @@
+[
+	{id: 1, name: 'admin1', email: "a@a.com",
+		password: "secret", role: 'Admin'},
+	{id: 2, name: 'employee1', email: "a@a.com",
+		password: "secret", role: 'Employee'},
+	{id: 3, name: 'employee2', email: "a@a.com",
+		password: "secret", role: 'Employee'}
+]

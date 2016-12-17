@@ -3,7 +3,7 @@
 ###To Run
 1. Run 'npm install'
 2. Run 'npm start'
-3. App Should be running now at localhost:3000
+3. App should now be running at localhost:3000
 	* Admin Credentials: 1/secret
 
 ###Design Architecture:

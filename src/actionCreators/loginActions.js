@@ -15,6 +15,15 @@ export function login(id, password, onSuccess, onFailure) {
         const newUrl = `/admin`;
         browserHistory.push(newUrl);
       }
+    } else if (id === '2' && password === 'secret') {
+      return (dispatch) => {
+        dispatch({
+          type: "LOGIN_SUCCESS",
+          id
+        });
+        const newUrl = `/employee/${id}`;
+        browserHistory.push(newUrl);
+      }
     } else {
       if (onFailure) {
         onFailure("Login Failed");
