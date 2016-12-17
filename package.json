@@ -3,7 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.7.0"
+    "babel-core": "6.17.0",
+    "babel-eslint": "7.0.0",
+    "babel-jest": "16.0.0",
+    "babel-loader": "6.2.5",
+    "babel-preset-react-app": "^1.0.0",
+    "css-loader": "0.25.0",
+    "eslint": "3.8.1",
+    "eslint-config-react-app": "^0.3.0",
+    "eslint-loader": "1.6.0",
+    "eslint-plugin-flowtype": "2.21.0",
+    "eslint-plugin-import": "2.0.1",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.4.1",
+    "html-webpack-plugin": "2.24.0",
+    "webpack": "1.13.2",
+    "webpack-dev-server": "1.16.2",
+    "webpack-manifest-plugin": "1.1.0"
   },
   "dependencies": {
     "react": "^15.4.1",
@@ -15,9 +31,14 @@
     "react-router": "3.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "NODE_ENV=development node serverStart.js"
+  },
+    "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   }
 }
