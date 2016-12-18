@@ -4,8 +4,13 @@ var fs = require("fs");
 
 app.get('/api/v1/users', function (req, res) {
    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
-       console.log( data );
-       res.end( data );
+   		console.log( data );
+		res.writeHeader(200, {
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods':'GET, OPTIONS',
+			'Access-Control-Allow-Headers': 'Origin, Content-Type'
+		})
+    	res.end( data );
    });
 })
 

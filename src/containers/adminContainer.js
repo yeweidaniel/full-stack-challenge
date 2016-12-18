@@ -16,6 +16,10 @@ class Admin extends Component {
     this.state = {};
   }
 
+  componentWillMount() {
+    store.actions.usersActions.getUsers();
+  }
+
   removeUser(id) {
     store.actions.usersActions.removeUser(id);
   }

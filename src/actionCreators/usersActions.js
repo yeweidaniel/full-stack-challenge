@@ -1,4 +1,5 @@
-// Handle API calls and action creation
+// import { CALL_API } from 'redux-api-middleware';
+import request from 'superagent'
 
 export function removeUser(id) {
     return {
@@ -39,3 +40,37 @@ export function addAssignee(reviewId, assignee) {
     assignee
   }
 }
+
+export function getUsers() {
+  return (dispatch) => {
+    request
+      .get('http://localhost:8080/api/v1/users')
+      .end((err, res) => {
+        if (err) {
+          //do error handling
+          return;
+        }
+
+        const payload = JSON.parse(res.text);
+        dispatch({
+          type: 'USERS_RETRIEVED',
+          users: payload.users
+        });
+      }
+    )
+  }
+}
+/*
+export function getUsersMiddleware() {
+  return {
+    [CALL_API]: {
+      endpoint: 'http://localhost:8080/api/v1/users',
+      method: 'GET',
+      types: [
+        'REQUEST',
+        'USERS_RETRIEVED',
+        'API_FAILURE'
+      ]
+    }
+  };
+}*/

@@ -4,7 +4,8 @@ import '../styles/reviewsComponent.css';
 export default class Reviews extends Component {
   static propTypes = {
     data: PropTypes.object,
-    actions: PropTypes.object
+    actions: PropTypes.object,
+    showFeedbacks: PropTypes.bool
   }
 
   constructor(props, context) {
@@ -13,6 +14,10 @@ export default class Reviews extends Component {
     this.state = {
       selectedAssignee: undefined
     };
+  }
+
+  renderFeedbacks(review) {
+    const { feedbacks } = review;
   }
 
   renderReview(review) {
@@ -37,6 +42,7 @@ export default class Reviews extends Component {
             <td>Assignees</td>
             <td>{assigneesView}</td>
           </tr>
+
         </tbody>
       </table>
       );

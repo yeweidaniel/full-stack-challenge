@@ -22,7 +22,7 @@ export default class Users extends Component {
 
   roleOptions = [
     <option value="Admin" key="0">Admin</option>,
-    <option value="Employee" key ="1">Employee</option>
+    <option value="Employee" key="1">Employee</option>
   ];
 
   submitNewUser() {

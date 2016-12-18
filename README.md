@@ -6,7 +6,7 @@
 3. Run 'npm start'
 4. API should now be running at localhost:8080
 
-###Start Run UI
+###Start UI
 1. Open new terminal, navigate to root project folder
 2. Run 'npm install'
 3. Run 'npm start'

@@ -1,10 +1,6 @@
 function initialize() {
 	return {
-		users: [
-			{id: 1, name: 'admin1', role: 'Admin'},
-			{id: 2, name: 'employee1', role: 'Employee'},
-			{id: 3, name: 'employee2', role: 'Employee'}
-		],
+		users: [],
 		showReviewsFor: undefined,
 		reviews: [
 			{id: 1, author: 1, content: "you did a great job", assignees:[3], payee: 2, createdDate: "2016-12-03"}
@@ -91,10 +87,10 @@ handlers["SHOW_USER_REVIEWS"] = (state, { id }) => {
 	}
 };
 
-handlers['USERS_RETRIEVED'] = (state, {payload}) => {
+handlers['USERS_RETRIEVED'] = (state, { users }) => {
 	return {
 		...state,
-		users: payload.users
+		users: users
 	};
 };
 

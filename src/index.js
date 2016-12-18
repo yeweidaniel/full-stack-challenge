@@ -9,6 +9,7 @@ import { createStore, applyMiddleware, bindActionCreators } from 'redux';
 import combinedApp from './reducers/index.js';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
+import { apiMiddleware } from 'redux-api-middleware';
 import * as usersActions from './actionCreators/usersActions.js';
 import * as loginActions from './actionCreators/loginActions.js';
 import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
@@ -18,7 +19,7 @@ const logger = createLogger();
 export const store = createStore(
 	combinedApp,
 	{},
-	applyMiddleware(thunk, logger)
+	applyMiddleware(thunk, apiMiddleware, logger)
 );
 
 //entry point of React, pass in store and routing information
