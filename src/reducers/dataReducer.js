@@ -3,7 +3,22 @@ function initialize() {
 		users: [],
 		showReviewsFor: undefined,
 		reviews: [
-			{id: 1, author: 1, content: "you did a great job", assignees:[3], payee: 2, createdDate: "2016-12-03"}
+			{
+				id: 1, author: 1, content: "you did a great job",
+				assignees:[3], payee: 2, createdDate: "2016-12-03",
+				feedbacks:[
+					{author: 3, content: "I agree!"},
+					{author: 2, content: "Thanks"}
+				]
+			},
+			{
+				id: 2, author: 1, content: "you did a terrible job",
+				assignees:[3], payee: 2, createdDate: "2016-12-04",
+				feedbacks:[
+					{date: "2016-12-05", author: 3, content: "I agree!"},
+					{date: "2016-12-06", author: 2, content: "Thanks"}
+				]
+			}
 		],
 		userContext: {
 			id: undefined

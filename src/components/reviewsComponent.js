@@ -17,34 +17,52 @@ export default class Reviews extends Component {
   }
 
   renderFeedbacks(review) {
-    const { feedbacks } = review;
+    const feedbacks = review.feedbacks;
+    if (!feedbacks) {
+      return null;
+    }
+
+    const views = feedbacks.map(f => {
+      const date = f.date ? f.date : 'unknown date';
+      const author = f.author ? f.author : 'unknown author';
+      return (
+        <div className='d-feedback'>
+          <span>{`On ${date}, ${author} wrote: ${f.content}`}</span>
+        </div>
+      );
+    });
+    return views;
   }
 
   renderReview(review) {
     const assigneesView = this.renderAssignees(review);
 
     return (
-      <table className="d-review-table" key={review.id}>
-        <tbody>
-          <tr key="0">
-            <td>Date</td>
-            <td>{review.createdDate}</td>
-          </tr>
-          <tr key="1">
-            <td>Author</td>
-            <td>{review.author}</td>
-          </tr>
-          <tr key="2">
-            <td>Content</td>
-            <td>{review.content}</td>
-          </tr>
-          <tr key="3">
-            <td>Assignees</td>
-            <td>{assigneesView}</td>
-          </tr>
-
-        </tbody>
-      </table>
+      <div className="d-review">
+        <table className="d-review-table" key={review.id}>
+          <tbody>
+            <tr key="0">
+              <td>Date</td>
+              <td>{review.createdDate}</td>
+            </tr>
+            <tr key="1">
+              <td>Author</td>
+              <td>{review.author}</td>
+            </tr>
+            <tr key="2">
+              <td>Content</td>
+              <td>{review.content}</td>
+            </tr>
+            <tr key="3">
+              <td>Assignees</td>
+              <td>{assigneesView}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div className="d-feedbacks">
+          {this.renderFeedbacks(review)}
+        </div>
+      </div>
       );
   }
 
