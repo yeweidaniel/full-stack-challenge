@@ -4,8 +4,10 @@ function initialize() {
 		showReviewsFor: undefined,
 		reviews: [],
 		pendingFeedbacks:[],
-		showFeedbacksFor: undefined
-
+		showFeedbacksFor: undefined,
+		userContext: {
+			id: undefined
+		}
 	};
 }
 

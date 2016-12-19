@@ -69,7 +69,8 @@ class Admin extends Component {
           users={users}
           userContext={userContext} />
         <Reviews
-          data={this.props.data} 
+          data={this.props.data}
+          users={users}
           actions={this.getReviewActions()} />
       </div>
     );

@@ -19,7 +19,7 @@ export function login(id, password, onSuccess, onFailure) {
       return (dispatch) => {
         dispatch({
           type: "LOGIN_SUCCESS",
-          id
+          id: Number(id)
         });
         const newUrl = `/employee/${id}`;
         browserHistory.push(newUrl);

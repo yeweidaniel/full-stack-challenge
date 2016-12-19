@@ -113,18 +113,30 @@ export default class Users extends Component {
   }
 
   renderActionButtons(user) {
-    return (
-      <div>
+    const { userContext: { id } } = this.props;
+
+    const buttons = [];
+    buttons.push(
+      <span>
+          <input type="Button"
+            value="Show Reviews"
+            onClick={() => this.props.actions.showUserReviews(user.id)} />
+        </span>
+    );
+    
+    if (Number(id) !== user.id) {
+      buttons.push((
         <span>
           <input type="Button"
             value="Remove"
             onClick={() => this.props.actions.removeUser(user.id)} />
         </span>
-        <span>
-          <input type="Button"
-            value="Show Reviews"
-            onClick={() => this.props.actions.showUserReviews(user.id)} />
-        </span>
+      ));
+    }
+
+    return (
+      <div>
+        {buttons}
       </div>
       );
   }

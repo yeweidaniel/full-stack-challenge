@@ -107,9 +107,9 @@ export default class Reviews extends Component {
   }
 
   render() {
-    const { data: {reviews, showReviewsFor} } = this.props;
+    const { data: {reviews, showReviewsFor}, users } = this.props;
 
-    if (!showReviewsFor) {
+    if (!showReviewsFor || users.findIndex(u => u.id === showReviewsFor) === -1) {
       return null;
     }
 
