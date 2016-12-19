@@ -28,7 +28,7 @@
 			"id": 3,
 			"author": 1,
 			"content": "you did a decent job, user 3",
-			"assignees":[3],
+			"assignees":[3, 2],
 			"target": 3,
 			"createdDate": "2016-12-04",
 			"feedbacks":[

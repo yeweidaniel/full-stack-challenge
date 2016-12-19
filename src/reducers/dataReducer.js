@@ -3,9 +3,9 @@ function initialize() {
 		users: [],
 		showReviewsFor: undefined,
 		reviews: [],
-		userContext: {
-			id: undefined
-		}
+		pendingFeedbacks:[],
+		showFeedbacksFor: undefined
+
 	};
 }
 
@@ -96,6 +96,14 @@ handlers['REVIEWS_RETRIEVED'] = (state, { reviews }) => {
 	return {
 		...state,
 		reviews: reviews
+	};
+};
+
+handlers['PENDING_FEEDBACKS_RECEIVED'] = (state, { pendingFeedbacks, userId }) => {
+	return {
+		...state,
+		showReviewsFor: userId,
+		pendingFeedbacks
 	};
 };
 

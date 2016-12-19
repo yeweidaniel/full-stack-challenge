@@ -1,7 +1,7 @@
 # Full Stack Developer Challenge
 
 ## Steps to run
-Prerequisites: make sure Node.js is installed and nothing is running on port 8080 and 3000
+Prerequisites: make sure Node.js is installed and nothing is running on ports 8080 and 3000
 
 ###Start API Server
 1. Open new terminal, navigate to /apiServer folder

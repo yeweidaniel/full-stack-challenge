@@ -61,6 +61,28 @@ export function getUsers() {
   }
 }
 
+export function getPendingFeedbacks(userId) {
+  return (dispatch) => {
+    request
+      .get(`http://localhost:8080/api/v1/users/${userId}/pendingFeedbacks`)
+      .end((err, res) => {
+        if (err) {
+          //do error handling
+          return;
+        }
+
+        const payload = JSON.parse(res.text);
+        dispatch({
+          type: 'PENDING_FEEDBACKS_RECEIVED',
+          pendingFeedbacks: payload.pendingFeedbacks,
+          userId
+        });
+      }
+    )
+  }
+
+}
+
 export function getReviews() {
   return (dispatch) => {
     request

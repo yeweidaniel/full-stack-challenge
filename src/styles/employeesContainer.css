@@ -1,0 +1,22 @@
+.d-user-title {
+  font-size: 20px;
+  margin: 30px;
+}
+
+.d-admin-view {
+	font-size: 25px;
+	margin: 20px;
+}
+
+.d-feedbacks {
+	margin-left: 30px;
+}
+
+.d-submit-button {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.d-textarea {
+	display: inline-block;
+}
