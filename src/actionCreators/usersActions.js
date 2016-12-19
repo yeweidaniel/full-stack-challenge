@@ -60,17 +60,23 @@ export function getUsers() {
     )
   }
 }
-/*
-export function getUsersMiddleware() {
-  return {
-    [CALL_API]: {
-      endpoint: 'http://localhost:8080/api/v1/users',
-      method: 'GET',
-      types: [
-        'REQUEST',
-        'USERS_RETRIEVED',
-        'API_FAILURE'
-      ]
-    }
-  };
-}*/
+
+export function getReviews() {
+  return (dispatch) => {
+    request
+      .get(`http://localhost:8080/api/v1/reviews`)
+      .end((err, res) => {
+        if (err) {
+          //do error handling
+          return;
+        }
+
+        const payload = JSON.parse(res.text);
+        dispatch({
+          type: 'REVIEWS_RETRIEVED',
+          reviews: payload.reviews
+        });
+      }
+    )
+  }
+}

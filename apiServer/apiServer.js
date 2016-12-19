@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 
-app.get('/api/v1/users', function (req, res) {
+app.get('/api/v1/users/', function (req, res) {
    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
    		console.log( data );
 		res.writeHeader(200, {
@@ -10,6 +10,19 @@ app.get('/api/v1/users', function (req, res) {
 			'Access-Control-Allow-Methods':'GET, OPTIONS',
 			'Access-Control-Allow-Headers': 'Origin, Content-Type'
 		})
+    	res.end( data );
+   });
+})
+
+app.get('/api/v1/reviews', function (req, res) {
+   fs.readFile( __dirname + "/" + "reviews.json", 'utf8', function (err, data) {
+   		console.log( data );
+		res.writeHeader(200, {
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods':'GET, OPTIONS',
+			'Access-Control-Allow-Headers': 'Origin, Content-Type'
+		})
+
     	res.end( data );
    });
 })

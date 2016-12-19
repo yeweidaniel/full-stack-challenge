@@ -39,6 +39,15 @@
     display: inline-block;
 }
 
+.d-feedback {
+    margin-top: 5px;
+}
+
+.d-feedback-title {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
 .d-assignee {
     border: 1px dotted black;
     border-radius: 15px;

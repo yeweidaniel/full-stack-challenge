@@ -9,7 +9,7 @@ export default class Review {
 		text: PropTypes.string,
 		createdDate: PropTypes.date,
 		assigneeEmployeeIDs: PropTypes.array,
-		payee: PropTypes.number
+		target: PropTypes.number
 	};
 
 	constructor(...props) {

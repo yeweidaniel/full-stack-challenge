@@ -18,6 +18,7 @@ class Admin extends Component {
 
   componentWillMount() {
     store.actions.usersActions.getUsers();
+    store.actions.usersActions.getReviews();
   }
 
   removeUser(id) {

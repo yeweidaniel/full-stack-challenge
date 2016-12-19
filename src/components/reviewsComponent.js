@@ -60,6 +60,7 @@ export default class Reviews extends Component {
           </tbody>
         </table>
         <div className="d-feedbacks">
+          <div className="d-feedback-title">Feedbacks:</div>
           {this.renderFeedbacks(review)}
         </div>
       </div>
@@ -113,7 +114,7 @@ export default class Reviews extends Component {
     }
 
     const title = "Showing All Reviews For User " + showReviewsFor;
-    const filteredReviews = reviews.filter(review => review.payee === showReviewsFor);
+    const filteredReviews = reviews.filter(review => review.target === showReviewsFor);
     const reviewedDisplays = filteredReviews.map(review => this.renderReview(review));
 
     return (

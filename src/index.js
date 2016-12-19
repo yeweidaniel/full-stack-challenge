@@ -22,6 +22,12 @@ export const store = createStore(
 	applyMiddleware(thunk, apiMiddleware, logger)
 );
 
+// bind dispatch action to action creators
+store.actions = {
+  usersActions: bindActionCreators(usersActions, store.dispatch),
+  loginActions: bindActionCreators(loginActions, store.dispatch)
+};
+
 //entry point of React, pass in store and routing information
 ReactDOM.render(
   	<div>
@@ -38,11 +44,5 @@ ReactDOM.render(
   	</div>,
   document.getElementById('root')
 );
-
-// bind dispatch action to action creators
-store.actions = {
-	usersActions: bindActionCreators(usersActions, store.dispatch),
-  loginActions: bindActionCreators(loginActions, store.dispatch)
-};
 
 window.store = store;
