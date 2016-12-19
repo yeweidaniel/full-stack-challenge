@@ -1,5 +1,8 @@
 # Full Stack Developer Challenge
 
+## Steps to run
+Prerequisites: make sure Node.js is installed and nothing is running on port 8080 and 3000
+
 ###Start API Server
 1. Open new terminal, navigate to /apiServer folder
 2. Run 'npm install'
@@ -13,9 +16,19 @@
 4. App should now be running at localhost:3000
 	* Admin Credentials: 1/secret
 
-###Design Architecture:
+##Assumptions
+1. Each employee can't see another employee's review, but can add feedbacks to the other employee.
+2. Each employee can't see feedbacks provided by other employees.
+2. Only the admin can see every employee's complete review
 
-The front end rendering uses React.js, while business logic/API interaction is handled by Redux. The architectural flow is as follows:
+##Design:
+
+###Architectural flow
+The front end rendering uses React.js, while business logic/API interaction is handled by Redux. 
+
+The REST API server is written in Express; it serves static files
+
+The front-end architectural flow is as follows:
 
 Top Level Containers -> Action Creators -> Reducer -> Top Level Containers -> Lower Level Presentations Components
 
@@ -26,35 +39,37 @@ Top Level Containers -> Action Creators -> Reducer -> Top Level Containers -> Lo
 
 ###Technology Used
 
-* UI Rendering: React/Redux, React Router, React Logger, Webpack
+* UI Rendering: React/Redux, React Router, React Logger, Webpack, Redux-Thunk, Express.js
 * Dependency Management: npm
 
 ###UI Hierarchy
 
-LoginComponent
+LoginContainer
 * localhost:3000/login
+* localhost:3000
 
-AdminComponent
+AdminContainer
 * localhost:3000/admin
-* EmployeeInfoComponent
-* PerformanceReviewComponent
+* UsersComponent
+* ReviewsComponent
 
-EmployeeComponent 
+EmployeeContainer 
 * localhost:3000/employee/{id}
-* PerformanceReviewComponent
+* Add Feedbacks
 
 ###Domain Objects
 User
 * id: PropTypes.number,
 * name: PropTypes.string,
-* role: Admin or Employee
+* email: PropTypes.string,
+* role: Admin or Employee,
 * password: PropTypes.string
 
 Review
 * id: PropTypes.number,
 * author: id of author,
-* payee: id of payee this review is based on
-* feedbacks: list of feedback ids
+* target: id of payee this review is based on
+* content: list of feedbacks
 * text: PropTypes.string,
 * createdDate: PropTypes.date,
 * assignees: ids of assigned employees
@@ -62,16 +77,15 @@ Review
 Feedback
 * id: PropTypes.number,
 * author: id of author
-* text: PropTypes.string,
-* createdDate: PropTypes.date
+* content: PropTypes.string,
+* date: PropTypes.date
 
 ###API Design
-POST /api/v1/login
-Accepts Body: { id, password }
+api/v1/users
+GET list of users
 
-POST/PUT/GET/DELETE
-/api/v1/users
-Accepts Body: { User object }
+api/v1/reviews
+GET list of all reviews
 
-POST/PUT/GET/DELETE
-/api/v1/users/{id}/reviews
+api/v1/users/:id/pendingFeedbacks
+GET list of users that current user needs to provide feedback for
