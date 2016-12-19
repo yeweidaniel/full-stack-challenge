@@ -23,6 +23,7 @@ Prerequisites: make sure Node.js is installed and nothing is running on ports 80
 
 ##Limitations
 1. The API serves static files, changes are not persisted by a DB server.
+2. Authentication is not yet handled by the API
 
 ##Design:
 
