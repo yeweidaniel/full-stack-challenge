@@ -17,9 +17,11 @@ Prerequisites: make sure Node.js is installed and nothing is running on ports 80
 	* Admin Credentials: 1/secret
 
 ##Assumptions
-1. Each employee can't see another employee's review, but can add feedbacks to the other employee.
-2. Each employee can't see feedbacks provided by other employees.
+1. Each employee can't see another employee's review or feedback.
 2. Only the admin can see every employee's complete review
+
+##Limitations
+1. The API serves static files, changes are not persisted by a DB server.
 
 ##Design:
 
