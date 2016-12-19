@@ -15,6 +15,7 @@ Prerequisites: make sure Node.js is installed and nothing is running on ports 80
 3. Run 'npm start'
 4. App should now be running at localhost:3000
 	* Admin Credentials: 1/secret
+	* Employee Credentials: 2/secret
 
 ##Assumptions
 1. Each employee can't see another employee's review or feedback.
